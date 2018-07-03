@@ -80,3 +80,12 @@ func TestRange2DoesNotOverlapRange1(t *testing.T) {
 
 	assert.NotNil(t, err, "Expected an error")
 }
+
+func TestRangesIdentical(t *testing.T) {
+	var dateRange2 = DateRange{sevenDaysAgo, fourteenDaysFuture}
+	var dateRange1 = DateRange{sevenDaysAgo, fourteenDaysFuture}
+	var expected = DateRange{sevenDaysAgo, fourteenDaysFuture}
+	result, _ := findOverlap(dateRange1, dateRange2)
+
+	assert.Equal(t, expected, result, "Unexpected DateRange")
+}
