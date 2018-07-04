@@ -17,7 +17,7 @@ func findOverlap(dateRange1 DateRange, dateRange2 DateRange) (DateRange, error) 
 		overlap.end = dateRange2.end
 	}
 
-	if (overlap.end.Before(overlap.begin) || overlap.end.Equal(overlap.begin)) {
+	if overlap.end.Before(overlap.begin) || overlap.end.Equal(overlap.begin) {
 		err = errors.New("No Overlap")
 	}
 
